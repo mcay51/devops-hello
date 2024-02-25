@@ -2,20 +2,20 @@
 
 ### Docker
 
-docker build --build-arg JAR_FILE=target/java_044_devops_hello-1.0.3.jar  --tag mimaraslan/java_044_devops_hello:v003 .
+docker build --build-arg JAR_FILE=target/java_044_devops_hello-1.0.3.jar  --tag mcay51/java_044_devops_hello:v003 .
 
-docker build --build-arg JAR_FILE=target/java_044_devops_hello-1.0.3.jar  --tag mimaraslan/java_044_devops_hello:latest .
+docker build --build-arg JAR_FILE=target/java_044_devops_hello-1.0.3.jar  --tag mcay51/java_044_devops_hello:latest .
 
 
 DIŞ_PORT : İÇ_PORT
 
-docker run -d -p 8081:8080 mimaraslan/java_044_devops_hello:v001
+docker run -d -p 8081:8080 mcay51/java_044_devops_hello:v001
 
-docker run -d -p 8081:8080 mimaraslan/java_044_devops_hello:v002
+docker run -d -p 8081:8080 mcay51/java_044_devops_hello:v002
 
-docker run -d -p 8081:8080 mimaraslan/java_044_devops_hello
+docker run -d -p 8081:8080 mcay51/java_044_devops_hello
 
-docker run -d -p 8081:8080 mimaraslan/java_044_devops_hello:latest
+docker run -d -p 8081:8080 mcay51/java_044_devops_hello:latest
 
 
 http://localhost:8080/api/v1/hello
@@ -37,7 +37,7 @@ docker run --name my-postgresdb -e POSTGRES_PASSWORD=123456789 -d -p 9999:5432 p
 
 #### DockerHub'dan Docker'a image'i container olarak çekip çalıştırmak.
 
-docker run -d -p 8081:8080 mimaraslan/java_044_devops_hello:latest
+docker run -d -p 8081:8080 mcay51/java_044_devops_hello:latest
 
 
 
@@ -45,10 +45,10 @@ kubectl get nodes
 
 #### DockerHub'dan Kubenetes'teki Pod'a image'i container olarak çekip çalıştırmak.
 
-kubectl run mypod1 --image=mimaraslan/java_044_devops_hello:latest
-kubectl run mypod2 --image=mimaraslan/java_044_devops_hello:latest
-kubectl run mypod3 --image=mimaraslan/java_044_devops_hello:latest
-kubectl run mypod4 --image=mimaraslan/java_044_devops_hello:latest
+kubectl run mypod1 --image=mcay51/java_044_devops_hello:latest
+kubectl run mypod2 --image=mcay51/java_044_devops_hello:latest
+kubectl run mypod3 --image=mcay51/java_044_devops_hello:latest
+kubectl run mypod4 --image=mcay51/java_044_devops_hello:latest
 
 kubectl run hello-service --image=ebrucinarr/docker_hello:v001
 kubectl run agent-service --image=ebrucinarr/docker_hello:v001
