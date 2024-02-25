@@ -23,7 +23,7 @@ http://localhost:8080/api/v1/metod2
 http://localhost:8080/api/v1/metod3
 
 
-docker pull mimaraslan/java_044_devops_hello:latest
+docker pull https://github.com/mcay51/java_045_devops_pipeline
 
 docker pull postgres
 
