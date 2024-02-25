@@ -14,4 +14,4 @@ CMD apt-get update-y
 EXPOSE 8085
 
 # Uygulamamızın çalışmasını sağlıyoruz.
-ENTRYPOINT ["java",  "-jar", "/application.jar"]
+ENTRYPOINT ["java",  "-jar", "/devops-hello.jar"]
