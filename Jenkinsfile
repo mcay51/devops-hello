@@ -13,6 +13,35 @@ pipeline {
                  sh 'mvn clean install'
                  //bat 'mvn clean install'
             }
+
+        stage('Docker Image') {
+            steps {
+                // bat 'docker build -t mcay51/devops-application .'
+                 sh 'docker build -t mcay51/devops-hello .'
+            }
+        }
+
+
+        stage('Docker Image to DockerHub') {
+            steps {
+              script{
+                  withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                   sh 'echo docker login -u mcay51 -p ${dockerhub}'
+                   sh 'docker push mcay51/devops-hello:latest'
+                }
+              }
+            }
+        }
+
+        /*
+        stage('Deploy to Kubernetes') {
+            steps {
+              script{
+                  kubernetesDeploy (configs: 'deploymentservice.yaml', kubeconfigId: 'kubernetes')
+              }
+            }
+        }
+        */
         }
 
 
