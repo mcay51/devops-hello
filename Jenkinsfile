@@ -10,7 +10,7 @@ pipeline {
         stage('Build Maven') {
             steps {
                  checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mcay51/java_045_devops_pipeline']])
-                 sh 'mvn clean install'
+                 sh 'mvn test'
                  //bat 'mvn clean install'
             }
         }
