@@ -8,11 +8,11 @@
         <version>3.2.2</version>
         <relativePath/>
     </parent>
-    <groupId>com.mimaraslan</groupId>
+    <groupId>tr.com.mustafacay</groupId>
     <artifactId>java_045_devops_pipeline</artifactId>
     <version>1.0.10</version>
-    <name>Java_044_DevOpsHello</name>
-    <description>Java_044_DevOpsHello</description>
+    <name>java_045_devops_pipeline</name>
+    <description>java_045_devops_pipeline</description>
 
     <properties>
         <java.version>17</java.version>
