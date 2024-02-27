@@ -44,6 +44,17 @@ pipeline {
             }
         }
 
+    stage('Cleanup Docker Image') {
+        steps {
+            script{
+                withCredentials([string(credentialsId: 'jenkins-docker-hub-secret-text', variable: 'dockerhub')]) {
+                    sh 'docker rmi mcay51/devops-hello:latest'
+                    sh 'docker rmi mcay51/devops-hello:arm64'
 
+                }
+            }
+        }
+
+    }
     }
 }
