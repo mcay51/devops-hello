@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: devops-hello
-          image: mcay51/devops-hello
+          image: mcay51/devops-hello:arm64
           resources:
             limits:
               memory: "128Mi"
