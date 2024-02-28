@@ -12,7 +12,7 @@ metadata:
   name: devops-hello
   labels:
     name: devops-hello
-    app: docker001-hello-service
+    app: devops-hello-service
 spec:
   replicas: 3
   selector:
