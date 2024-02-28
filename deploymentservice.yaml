@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
+  labels:
+    name: development
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: development
+  name: devops-hello
+  labels:
+    name: devops-hello
+    app: docker001-hello-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devops-hello
+  template:
+    metadata:
+      labels:
+        type: deploy-backend
+        app: devops-hello
+      annotations:
+        owner: "M.Cay"
+        type: backend service"
+        create: "2023"
+    spec:
+      containers:
+        - name: devops-hello
+          image: mcay51/devops-hello
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          env:
+            - name: USERNAME
+              value: MUSTAFA
+            - name: USERSURNAME
+              value: ÇAY
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: MY_POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          ports:
+            - containerPort: 8085
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-loadbalancer-80
+  namespace: development
+spec:
+  selector:
+    app: devops-hello
+  type: LoadBalancer
+  ports:
+    - name: devops-hello-port
+      port: 8090
+      targetPort: 8085
