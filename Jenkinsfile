@@ -43,8 +43,7 @@ pipeline {
 
             }
         }
-
-    stage('Cleanup Docker Image') {
+        stage('Cleanup Docker Image') {
         steps {
             script{
                 withCredentials([string(credentialsId: 'jenkins-docker-hub-secret-text', variable: 'dockerhub')]) {
@@ -56,5 +55,13 @@ pipeline {
         }
 
     }
+
+    stage('Deploy to Kubernetes') {
+        steps {
+             script{
+                  kubernetesDeploy (configs: 'deploymentservice.yaml', kubeconfigId: 'kubernetes')
+              }
+            }
+        }
     }
 }
