@@ -66,5 +66,5 @@ spec:
   type: LoadBalancer
   ports:
     - name: devops-hello-port
-      port: 8090
+      port: 80
       targetPort: 8085
